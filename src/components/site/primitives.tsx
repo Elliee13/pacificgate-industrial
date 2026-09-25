@@ -120,7 +120,7 @@ export function CaptionedImage({
   imgClassName?: string;
 }) {
   return (
-    <figure className={cn("relative overflow-hidden rounded-lg border border-border", className)}>
+    <figure className={cn("relative flex flex-col overflow-hidden rounded-lg border border-border", className)}>
       <img
         src={src}
         alt={alt}
@@ -129,7 +129,7 @@ export function CaptionedImage({
         decoding="async"
         loading={priority ? "eager" : "lazy"}
         {...(priority ? { fetchPriority: "high" as const } : {})}
-        className={cn("h-full w-full object-cover", imgClassName)}
+        className={cn("h-full w-full grow object-cover", imgClassName)}
       />
       {caption ? (
         <figcaption className="absolute bottom-3 left-3 rounded-md bg-navy/95 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy-foreground">
